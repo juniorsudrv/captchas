@@ -329,18 +329,21 @@ class CaptchaGospelElement extends HTMLElement {
       return;
     }
 
-    if (resposta.toLowerCase() === this._palavraAtual.toLowerCase()) {
-      this._captchaResolvido = true;
-      this.mensagem.textContent = '✅';
-      this.mensagem.style.color = '#2ecc71';
-      this.input.disabled = true;
-      this.verifyBtn.disabled = true;
-      this._habilitarTarget(true);
-    } else {
-      this.mensagem.textContent = '❌';
-      this.mensagem.style.color = '#e74c3c';
-    }
-  }
+  // No método verificar(), encontre a parte onde acerta:
+if (resposta.toLowerCase() === this._palavraAtual.toLowerCase()) {
+  this._captchaResolvido = true;
+  this.mensagem.textContent = '✅';
+  this.mensagem.style.color = '#2ecc71';
+  this.input.disabled = true;
+  this.verifyBtn.disabled = true;
+  this._habilitarTarget(true);
+  
+  // 🔥 ADICIONE ESTA LINHA - Dispara evento personalizado
+  this.dispatchEvent(new CustomEvent('captcha-resolved', { 
+    detail: { palavra: this._palavraAtual },
+    bubbles: true 
+  }));
+}
 
   _habilitarTarget(habilitar) {
     const targetId = this.getAttribute('target');
