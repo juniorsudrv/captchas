@@ -6,40 +6,59 @@ function Login() {
   const [senha, setSenha] = useState('');
   const [captchaLoaded, setCaptchaLoaded] = useState(false);
   const [botaoHabilitado, setBotaoHabilitado] = useState(false);
+  const [captchaExpirado, setCaptchaExpirado] = useState(false);
   const captchaRef = useRef(null);
 
   // Carrega o Captcha Gospel
   useEffect(() => {
     import('https://cdn.jsdelivr.net/gh/juniorsudrv/captchas@main/captcha-gospel.js')
-      .then(() => setCaptchaLoaded(true))
-      .catch(err => console.error('Erro:', err));
+      .then(() => {
+        setCaptchaLoaded(true);
+        console.log('✅ Captcha Gospel carregado!');
+      })
+      .catch(err => {
+        console.error('❌ Erro ao carregar Captcha Gospel:', err);
+      });
   }, []);
 
-  // Escuta o evento do captcha
+  // Escuta os eventos do captcha
   useEffect(() => {
     const captchaElement = captchaRef.current;
     if (!captchaElement) return;
 
+    // Evento quando o captcha é resolvido
     const handleCaptchaResolved = (event) => {
-      console.log('🎉 Captcha resolvido! Palavra:', event.detail.palavra);
+      console.log('🎉 Captcha resolvido! Palavra:', event.detail?.palavra);
       setBotaoHabilitado(true);
+      setCaptchaExpirado(false);
+    };
+
+    // Evento quando o captcha expira
+    const handleCaptchaExpired = () => {
+      console.log('⏳ Captcha expirou!');
+      setCaptchaExpirado(true);
+      setBotaoHabilitado(false);
     };
 
     captchaElement.addEventListener('captcha-resolved', handleCaptchaResolved);
+    captchaElement.addEventListener('captcha-expired', handleCaptchaExpired);
 
     return () => {
       captchaElement.removeEventListener('captcha-resolved', handleCaptchaResolved);
+      captchaElement.removeEventListener('captcha-expired', handleCaptchaExpired);
     };
   }, [captchaLoaded]);
 
   const handleLogin = (e) => {
     e.preventDefault();
     if (!botaoHabilitado) {
-      alert('⚠️ Complete o captcha primeiro!');
+      alert(captchaExpirado ? '⏳ O captcha expirou! Clique em ↻ para recarregar.' : '⚠️ Complete o captcha primeiro!');
       return;
     }
     console.log("Dados:", { email, senha });
     alert("✅ Login enviado com sucesso!");
+    // Reset após login
+    setBotaoHabilitado(false);
   };
 
   return (
@@ -59,7 +78,7 @@ function Login() {
           onChange={(e) => setSenha(e.target.value)} 
         />
 
-        {captchaLoaded && (
+        {captchaLoaded ? (
           <div style={{ margin: '10px 0' }}>
             <captcha-gospel 
               ref={captchaRef}
@@ -67,6 +86,15 @@ function Login() {
               height="300"
               wordlist='["JESUS","AMOR","FÉ","PAZ","GRAÇA","ALELUIA","GLORIA"]'
             />
+            {captchaExpirado && (
+              <p style={{ color: '#e67e22', fontSize: '14px', margin: '5px 0 0 0' }}>
+                ⏳ Captcha expirou! Clique em ↻ para recarregar.
+              </p>
+            )}
+          </div>
+        ) : (
+          <div style={{ margin: '10px 0', padding: '20px', background: '#f0f0f0', textAlign: 'center' }}>
+            ⏳ Carregando captcha...
           </div>
         )}
 

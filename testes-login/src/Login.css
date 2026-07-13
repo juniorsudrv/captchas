@@ -1,32 +1,60 @@
+/* Login.css */
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f4f4f9;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Arial', sans-serif;
 }
 
 .login-form {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 350px;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  gap: 15px;
+}
+
+.login-form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .login-form input {
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
 }
 
-.login-form button {
-  padding: 0.5rem;
-  background-color: #007bff;
+.login-form input:focus {
+  border-color: #667eea;
+  outline: none;
+}
+
+.login-form button[type="submit"] {
+  padding: 12px;
+  background: #667eea;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+
+.login-form button[type="submit"]:hover:not(:disabled) {
+  background: #5a67d8;
+}
+
+.login-form button[type="submit"]:disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
 }

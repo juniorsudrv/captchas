@@ -1,4 +1,4 @@
-// captcha-gospel-component.js
+// captcha-gospel.js
 // Web Component independente - funciona em React, Angular, Vue, HTML puro
 
 class CaptchaGospelElement extends HTMLElement {
@@ -240,6 +240,11 @@ class CaptchaGospelElement extends HTMLElement {
         this.mensagem.textContent = '⏳';
         this.mensagem.style.color = '#e67e22';
         this._palavraAtual = null;
+        // Dispara evento de expiração
+        this.dispatchEvent(new CustomEvent('captcha-expired', {
+          bubbles: true,
+          composed: true
+        }));
       }
     }, this.TEMPO_EXPIRACAO);
   }
@@ -313,6 +318,11 @@ class CaptchaGospelElement extends HTMLElement {
     if (!this._palavraAtual) {
       this.mensagem.textContent = '⏳';
       this.mensagem.style.color = '#e67e22';
+      // Dispara evento de expirado
+      this.dispatchEvent(new CustomEvent('captcha-expired', {
+        bubbles: true,
+        composed: true
+      }));
       return;
     }
 
@@ -329,21 +339,25 @@ class CaptchaGospelElement extends HTMLElement {
       return;
     }
 
-  // No método verificar(), encontre a parte onde acerta:
-if (resposta.toLowerCase() === this._palavraAtual.toLowerCase()) {
-  this._captchaResolvido = true;
-  this.mensagem.textContent = '✅';
-  this.mensagem.style.color = '#2ecc71';
-  this.input.disabled = true;
-  this.verifyBtn.disabled = true;
-  this._habilitarTarget(true);
-  
-  // 🔥 ADICIONE ESTA LINHA - Dispara evento personalizado
-  this.dispatchEvent(new CustomEvent('captcha-resolved', { 
-    detail: { palavra: this._palavraAtual },
-    bubbles: true 
-  }));
-}
+    if (resposta.toLowerCase() === this._palavraAtual.toLowerCase()) {
+      this._captchaResolvido = true;
+      this.mensagem.textContent = '✅';
+      this.mensagem.style.color = '#2ecc71';
+      this.input.disabled = true;
+      this.verifyBtn.disabled = true;
+      this._habilitarTarget(true);
+      
+      // 🔥 DISPARA EVENTO COM composed: true
+      this.dispatchEvent(new CustomEvent('captcha-resolved', { 
+        detail: { palavra: this._palavraAtual },
+        bubbles: true,
+        composed: true
+      }));
+    } else {
+      this.mensagem.textContent = '❌';
+      this.mensagem.style.color = '#e74c3c';
+    }
+  }
 
   _habilitarTarget(habilitar) {
     const targetId = this.getAttribute('target');
