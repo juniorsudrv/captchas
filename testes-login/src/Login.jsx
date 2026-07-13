@@ -11,15 +11,22 @@ function Login() {
 
   // Carrega o Captcha Gospel
   useEffect(() => {
-    import('https://cdn.jsdelivr.net/gh/juniorsudrv/captchas@main/captcha-gospel.js')
-      .then(() => {
-        setCaptchaLoaded(true);
-        console.log('✅ Captcha Gospel carregado!');
-      })
-      .catch(err => {
-        console.error('❌ Erro ao carregar Captcha Gospel:', err);
-      });
-  }, []);
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/gh/juniorsudrv/captchas@main/captcha-gospel.js';
+  script.async = true;
+  script.type = 'module'; // 👈 ADICIONE ISSO
+  script.onload = () => {
+    setCaptchaLoaded(true);
+    console.log('✅ Carregado via script tag!');
+  };
+  script.onerror = (err) => console.error('❌ Falha ao carregar CDN:', err);
+  
+  document.body.appendChild(script);
+
+  return () => {
+    document.body.removeChild(script);
+  };
+}, []);
 
   // Escuta os eventos do captcha
   useEffect(() => {
