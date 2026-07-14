@@ -1,6 +1,6 @@
 {
   "name": "captchas-prod",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "captchas-prod/src/index.js",
   "type": "module"
 }
