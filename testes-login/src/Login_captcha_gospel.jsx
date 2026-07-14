@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Login.css';
-import 'captcha-gospel'; // O Web Component é registrado globalmente aqui
+import    'captchas-prod';   // O Web Component é registrado globalmente aqui
 
 function Login_captcha_gospel() {
     const [email, setEmail] = useState('');

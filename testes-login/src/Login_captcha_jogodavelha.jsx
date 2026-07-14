@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Login.css';
-import 'captcha-jogodavelha';  
+import    'captchas-prod';  
 
 function Login_captcha_jogodavelha() {
     const [email, setEmail] = useState('');
