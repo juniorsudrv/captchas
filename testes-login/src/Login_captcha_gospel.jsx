@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Login.css';
 import 'captcha-gospel'; // O Web Component é registrado globalmente aqui
 
-function Login() {
+function Login_captcha_gospel() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [botaoHabilitado, setBotaoHabilitado] = useState(false);
@@ -102,4 +102,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Login_captcha_gospel;

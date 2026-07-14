@@ -1,7 +1,8 @@
-import Login from './Login';
+import React from 'react';
+import MenuCaptcha from './MenuCaptcha';
 
 function App() {
-  return <Login />;
+  return <MenuCaptcha />;
 }
 
 export default App;
