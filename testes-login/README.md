@@ -1,5 +1,5 @@
 # 🛡️ Captchas Prod
-
+ 
 Uma coleção de CAPTCHAs interativos e criativos desenvolvida para validar formulários de maneira divertida e segura. O projeto utiliza **Web Components**, o que significa que é independente de framework e funciona perfeitamente em **React, Angular, Vue ou HTML puro**.
 
 Atualmente, a biblioteca conta com:

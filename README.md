@@ -13,7 +13,7 @@ Atualmente, a biblioteca conta com:
 Como o pacote está hospedado no GitHub, você pode instalá-lo diretamente via npm executando o comando abaixo no seu terminal:
 
 ```bash
-npm install git+[https://github.com/juniorsudrv/captchas.git](https://github.com/juniorsudrv/captchas.git)
+npm install git+https://github.com/juniorsudrv/captchas.git
 ```
 
 Sua configuração no arquivo `package.json` será atualizada automaticamente para incluir a dependência.
@@ -31,7 +31,7 @@ O repositório já inclui um projeto pronto para você testar a integração dos
 2. Instale as dependências do projeto e a biblioteca de captchas:
    ```bash
    npm i
-   npm install git+[https://github.com/juniorsudrv/captchas.git](https://github.com/juniorsudrv/captchas.git)
+   npm install git+https://github.com/juniorsudrv/captchas.git
    ```
 3. Inicie o servidor:
    ```bash
