@@ -5,6 +5,7 @@ import './MenuCaptcha.css';
 import Login_captcha_gospel from './Login_captcha_gospel';
 
 import Login_captcha_jogodavelha from './Login_captcha_jogodavelha';
+import Login_captcha_dino from './Login_captcha_dino';
  
 
 function MenuCaptcha() {
@@ -22,6 +23,12 @@ function MenuCaptcha() {
       id: 'social',
       name: 'Login Captcha-JogoDaVelha',
       component: Login_captcha_jogodavelha, // Substitua pelo componente real
+      description: 'Login com redes sociais e captcha'
+    } ,
+    {
+      id: 'dino',
+      name: 'Login Captcha-Dino',
+      component: Login_captcha_dino, // Substitua pelo componente real
       description: 'Login com redes sociais e captcha'
     } 
   ];
