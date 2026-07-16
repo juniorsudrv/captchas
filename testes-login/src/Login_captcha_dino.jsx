@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Login.css';
-import './captcha-dino'; // <-- Certifique-se de que o arquivo do dino está no mesmo diretório
+import 'captchas-prod';  
 
 function Login_captcha_dino() { // Renomeei a função para refletir o novo jogo
     const [email, setEmail] = useState('');
