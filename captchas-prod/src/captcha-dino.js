@@ -275,7 +275,7 @@ class CaptchaDinoElement extends HTMLElement {
   }
 
   iniciar() {
-    if (this._captchaResolvido) return;
+   
     
     this.prepararJogo();
     this.overlay.style.display = 'none';

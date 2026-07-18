@@ -16,23 +16,18 @@ A biblioteca é construída utilizando **Web Components**, tornando-a totalmente
 
 # 🎯 Captchas disponíveis
 
-## 🎮 Captcha Jogo da Velha
-
-O usuário precisa vencer uma partida de **Jogo da Velha** contra a máquina para provar que é humano.
-
 ---
 
-## 🦖 Captcha Dino Runner
-
-Inspirado no famoso jogo offline do Google Chrome.
-
-O usuário deve sobreviver durante **10 segundos**, desviando dos obstáculos.
-
----
-
-## 🕊️ Captcha Gospel
-
-Validação baseada em perguntas e temas cristãos.
+* 🎮 **Jogo da Velha (`<captcha-velha>`)**: Vença uma partida contra a máquina.
+* 🦖 **Dino Runner (`<captcha-dino>`)**: Sobreviva por 10 segundos desviando de obstáculos.
+* 🧠 **Jogo da Memória (`<captcha-memory>`)**: Encontre todos os pares de emojis ocultos.
+* 🐭 **Labirinto (`<captcha-maze>`)**: Arraste o caminho correto do rato até o queijo.
+* 🥤 **Copos / Shell Game (`<captcha-cups>`)**: Acompanhe o embaralhamento e descubra onde está a bolinha.
+* 🏃 **Pique-Pega (`<captcha-tag>`)**: Persiga e clique no personagem fujão antes que o tempo acabe.
+* ✊ **Pedra, Papel ou Tesoura (`<captcha-rps>`)**: Vença uma rodada do clássico Jokenpô contra o Robô.
+* 🎯 **Estilingue (`<captcha-slingshot>`)**: Arraste, mire e acerte o alvo com física real.
+* 🎵 **Genius / Simon Says (`<captcha-simon>`)**: Memorize e repita a sequência de cores e sons.
+* 🕊️ **Gospel (`<captcha-gospel>`)**: Validação baseada em perguntas e temas cristãos.
 
 ---
 

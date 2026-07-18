@@ -6,7 +6,13 @@ import Login_captcha_gospel from './Login_captcha_gospel';
 
 import Login_captcha_jogodavelha from './Login_captcha_jogodavelha';
 import Login_captcha_dino from './Login_captcha_dino';
- 
+import Login_captcha_memory  from './Login_captcha_memory';
+import Login_captcha_maze from './Login_captcha_maze'; 
+import Login_captcha_cups from './Login_captcha_cups';
+import Login_captcha_tag from './Login_captcha_tag';
+import Login_captcha_rps from './Login_captcha_rps';
+import Login_captcha_slingshot from './Login_captcha_slingshot';
+import Login_captcha_simon from './Login_captcha_simon';
 
 function MenuCaptcha() {
   const [activeLogin, setActiveLogin] = useState(null);
@@ -29,6 +35,51 @@ function MenuCaptcha() {
       id: 'dino',
       name: 'Login Captcha-Dino',
       component: Login_captcha_dino, // Substitua pelo componente real
+      description: 'Login com redes sociais e captcha'
+    }  ,
+    {
+      id: 'memory',
+      name: 'Login Captcha-Memória',
+      component: Login_captcha_memory, // Substitua pelo componente real
+      description: 'Login com redes sociais e captcha'
+    } 
+    ,
+    {
+      id: 'maze',
+      name: 'Login Captcha-Labirinto',
+      component: Login_captcha_maze, // Substitua pelo componente real
+      description: 'Login com redes sociais e captcha'
+    } ,
+    {
+      id: 'cups',
+      name: 'Login Captcha-JogoDasConchas',
+      component: Login_captcha_cups, // Substitua pelo componente real
+      description: 'Login com redes sociais e captcha'
+    } 
+    ,
+    {
+      id: 'gas',
+      name: 'Login Captcha-PiquePega',
+      component: Login_captcha_tag, // Substitua pelo componente real
+      description: 'Login com redes sociais e captcha'
+    } 
+    ,
+    {
+      id: 'rps',
+      name: 'Login Captcha-PedraPaelTesoura',
+      component: Login_captcha_rps, // Substitua pelo componente real
+      description: 'Login com redes sociais e captcha'
+    }  ,
+    {
+      id: 'slingshot',
+      name: 'Login Captcha-AngryBirds',
+      component: Login_captcha_slingshot, // Substitua pelo componente real
+      description: 'Login com redes sociais e captcha'
+    } ,
+    {
+      id: 'simon',
+      name: 'Login Captcha-MemoriaCoresSons',
+      component: Login_captcha_simon, // Substitua pelo componente real
       description: 'Login com redes sociais e captcha'
     } 
   ];
