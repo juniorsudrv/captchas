@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Login.css';
-import 'captcha-tag';  
+import 'captchas-prod';    
 
 function Login_captcha_tag() { // Renomeei a função para refletir o novo jogo
     const [email, setEmail] = useState('');
