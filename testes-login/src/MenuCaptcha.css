@@ -6,113 +6,167 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 20px;
+  padding: 40px 20px;
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width: 800px;
 }
 
 .menu-title {
   color: white;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  font-size: 2.8rem;
+  margin-bottom: 12px;
   text-align: center;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.25);
 }
 
 .menu-subtitle {
   color: rgba(255,255,255,0.9);
-  font-size: 1.2rem;
-  margin-bottom: 40px;
+  font-size: 1.25rem;
+  margin: 0;
 }
 
-/* Grid de botões */
+/* Grid de cards */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1300px;
   width: 100%;
-  padding: 20px;
 }
 
-/* Botões do menu */
-.menu-button {
+/* Cards do menu */
+.menu-card {
   background: white;
-  border: none;
-  border-radius: 15px;
-  padding: 30px 20px;
+  border-radius: 20px;
+  padding: 2.2rem 1.8rem;
+  border: 2px solid #e5e7eb;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-}
-
-.menu-button:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-.button-icon {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.button-name {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.button-description {
-  font-size: 0.9rem;
-  color: #666;
   text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  height: 100%;
 }
 
-/* Container da demo de login */
+.menu-card:hover {
+  transform: translateY(-12px);
+  border-color: var(--card-color);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+}
+
+.card-icon-wrapper {
+  width: 110px;
+  height: 110px;
+  background: #f8fafc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.4s ease;
+  border: 5px solid #f1f5f9;
+}
+
+.menu-card:hover .card-icon-wrapper {
+  background: var(--card-color);
+  border-color: rgba(255,255,255,0.4);
+  transform: scale(1.1);
+}
+
+.card-icon {
+  font-size: 4.5rem;
+  transition: transform 0.4s ease;
+  line-height: 1;
+}
+
+.menu-card:hover .card-icon {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.card-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 0.8rem 0;
+}
+
+.card-description {
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 1.02rem;
+  flex: 1;
+}
+
+.card-arrow {
+  margin-top: 1.5rem;
+  font-size: 1.8rem;
+  color: #94a3b8;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.menu-card:hover .card-arrow {
+  opacity: 1;
+  transform: translateX(10px);
+  color: var(--card-color);
+}
+
+/* Container da tela de login */
 .login-demo-container {
   min-height: 100vh;
-  background: #f0f0f0;
-  padding: 20px;
+  background: #f8fafc;
+  padding: 30px 20px;
 }
 
 .back-button {
-  background: #667eea;
+  background: #4f46e5;
   color: white;
   border: none;
-  border-radius: 10px;
-  padding: 12px 24px;
-  font-size: 1rem;
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
   cursor: pointer;
-  margin-bottom: 20px;
-  transition: background 0.3s ease;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .back-button:hover {
-  background: #5a67d8;
+  background: #4338ca;
+  transform: translateX(-5px);
 }
 
-/* Placeholder para logins não implementados */
+/* Placeholder */
 .placeholder-login {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 300px;
+  min-height: 400px;
   background: white;
-  border-radius: 15px;
-  padding: 40px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  padding: 60px 40px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
 .placeholder-login h2 {
-  color: #667eea;
-  margin-bottom: 10px;
+  color: #4f46e5;
+  margin-bottom: 16px;
+  font-size: 2rem;
 }
 
 .placeholder-login p {
-  color: #666;
-  margin-bottom: 20px;
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
 }
